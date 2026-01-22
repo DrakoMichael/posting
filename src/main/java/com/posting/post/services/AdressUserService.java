@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.posting.post.entities.AdressUser;
 import com.posting.post.repositories.AdressUserRepository;
 
@@ -35,6 +37,7 @@ public class AdressUserService {
         this.authenticatedUserService = authenticatedUserService;
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("hasRole('ADMIN')")
     public Page<AdressUser> findAll(int page, int size) {
 
@@ -50,6 +53,7 @@ public class AdressUserService {
         return  adressUsers;
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("isAuthenticated()")
     public AdressUser findAdressUserByUserId() {
         Long userId = authenticatedUserService.getCurrentUserId();
@@ -58,6 +62,7 @@ public class AdressUserService {
         return adressUser;
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public AdressUser createAdressUser(AdressUserRequestDTO body) {
         var user = authenticatedUserService.getCurrentUser();
@@ -69,6 +74,7 @@ public class AdressUserService {
         return adressUserRepository.save(adressUser);
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public AdressUser updateAdressUser(AdressUserRequestDTO body) {
         var user = authenticatedUserService.getCurrentUser();
@@ -89,6 +95,7 @@ public class AdressUserService {
         entity.setHouseNumber(obj.getHouseNumber());
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteByUserId(Long userId) {
 
@@ -100,6 +107,7 @@ public class AdressUserService {
         userRepository.save(user);
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public void deleteAdressUser() {
         User user = authenticatedUserService.getCurrentUser();

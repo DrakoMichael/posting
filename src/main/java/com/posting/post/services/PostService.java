@@ -7,10 +7,15 @@ import com.posting.post.entities.User;
 import com.posting.post.mapper.PostMapper;
 import com.posting.post.services.exceptions.ResourceNotFoundException;
 import com.posting.post.services.exceptions.UnauthorizedActionException;
+
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.posting.post.entities.Post;
 import com.posting.post.repositories.PostRepository;
 
@@ -37,6 +42,7 @@ public class PostService {
         this.categoryService = categoryService;
     }
 
+    @Transactional(readOnly = true)
     public Page<Post> findAll(int page, int size) {
         Page<Post> posts = postRepository.findAll(PageRequest.of(page, size));
 
@@ -47,11 +53,13 @@ public class PostService {
         return posts;
     }
 
+    @Transactional(readOnly = true)
     public Post findById(Long id) {
         return postRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("No posts found."));
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("isAuthenticated()")
     public Page<Post> findPostsByUserId(int page, int size) {
         User user = authenticatedUserService.getCurrentUser();
@@ -65,6 +73,7 @@ public class PostService {
         return posts;
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public Post addCategoryInPost(Long postId, Long categoryId) {
         Long userId = authenticatedUserService.getCurrentUserId();
@@ -89,6 +98,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public Post updatePost(Long postId, PostRequestDTO dto) {
         Long userId = authenticatedUserService.getCurrentUserId();
@@ -109,6 +119,7 @@ public class PostService {
         entity.setDescription(obj.getDescription());
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public void deletePost(Long postId) {
         Long userId = authenticatedUserService.getCurrentUserId();

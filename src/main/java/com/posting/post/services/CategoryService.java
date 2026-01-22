@@ -15,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.posting.post.entities.Category;
 import com.posting.post.repositories.CategoryRepository;
 
@@ -35,6 +37,7 @@ public class CategoryService  {
         this.authenticatedUserService = authenticatedUserService;
     }
 
+    @Transactional(readOnly = true)
     public Page<Category> findAll(int page, int size) {
         Page<Category> categories = categoryRepository.findAll(PageRequest.of(page, size));
 
@@ -43,11 +46,13 @@ public class CategoryService  {
         return categories;
     }
 
+    @Transactional(readOnly = true)
     public Category findById(Long id) {
         return categoryRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException(id));
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public Category createCategory(CategoryRequestDTO body) {
 
@@ -60,6 +65,7 @@ public class CategoryService  {
         return categoryRepository.save(entity);
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public Category updateCategory(Long categoryId, CategoryRequestDTO body) {
 
@@ -83,6 +89,7 @@ public class CategoryService  {
         entity.setName(obj.getName());
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteCategory(Long categoryId) {
 

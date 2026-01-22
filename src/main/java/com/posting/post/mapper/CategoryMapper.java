@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CategoryMapper {
 
-
     public CategoryResponseDTO toCategory(Category category) {
         return new CategoryResponseDTO(
                 category.getId(),

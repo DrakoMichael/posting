@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.posting.post.entities.User;
 import com.posting.post.mapper.UserMapper;
 import com.posting.post.repositories.UserRepository;
@@ -28,11 +30,13 @@ public class UserService {
         this.authenticatedUserService = authenticatedUserService;
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("hasRole('ADMIN')")
     public Page<User> findAll(int page, int size) {
         return userRepository.findAll(PageRequest.of(page, size));
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("hasRole('ADMIN')")
     public User findById(Long id) {
         // Regra de negócio
@@ -45,6 +49,7 @@ public class UserService {
         return user;
     }
 
+    @Transactional(readOnly = true)
     @PreAuthorize("isAuthenticated()")
     public User findByUser() {
         Long id = authenticatedUserService.getCurrentUserId();
@@ -52,6 +57,7 @@ public class UserService {
         return user;
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public User createUser(UserRequestDTO dto) {
         User user = userMapper.toEntity(dto);
@@ -65,6 +71,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public User updateUser(User obj) {
         Long userId = authenticatedUserService.getCurrentUserId();
@@ -86,6 +93,7 @@ public class UserService {
         entity.setEmail(obj.getEmail());
     }
 
+    @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteById(Long id) {
         User currentUser = authenticatedUserService.getCurrentUser();
@@ -98,6 +106,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    @Transactional
     @PreAuthorize("isAuthenticated()")
     public void deleteUser() {
         Long userId = authenticatedUserService.getCurrentUserId();
