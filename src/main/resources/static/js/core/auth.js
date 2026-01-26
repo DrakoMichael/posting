@@ -1,9 +1,18 @@
 function getToken() {
-    return localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    const expired = localStorage.getItem('token_expired');
+    if (!token || Date.now() > expired) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('token_expired');
+        console.log('Token Expirado!');
+    }
+    return token;
 }
 
 function setToken(token) {
+    const expiresIn = Date.now() + 600000; // 10 Minutes
     localStorage.setItem('token', token);
+    localStorage.setItem('token_expired', expiresIn);
 }
 
 function removeToken() {
@@ -20,41 +29,13 @@ function authenticated() {
 function authenticationVerify() {
     if (!authenticated()) {
         alert('Você precisa estar autenticado para acessar este recurso!');
-        window.location.href = '/login.html';
+        window.location.href = 'auth.html'
         return false;
     }
     return true;
 }
 
-async function fetchAuthentication(url, options = {}) {
-    if (!authenticated()) {
-        throw new Error('Usuário não autenticado!');
-    }
-
-    const token = getToken();
-
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token,
-        ...options.headers
-    };
-
-    const response = await fetch(url, {
-        ...options,
-        headers: headers
-    });
-
-    if (response.status = 401) {
-        alert('Sessão expirada. Por favor, realize a autenticação novamente.');
-        removeToken();
-        window.location.href = '/login.html';
-        throw new Error('Token Expirado!');
-    }
-
-    return response;
-}
-
 function logout() {
     localStorage.removeItem('token');
-    alert('Logout realizado com sucesso!');
+    console.log('token removido');
 }

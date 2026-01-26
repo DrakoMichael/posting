@@ -31,14 +31,14 @@ hrml, body {
 }
 
 .main-title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: auto;
     margin: 0%;
     font-size: 200px;
 }
 
 #demo-title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 80px;
     padding-left: 34%;
 }
@@ -84,7 +84,7 @@ hrml, body {
 }
 
 .form-title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 30px;
     text-align: center;
     margin: 0;
@@ -117,7 +117,7 @@ legend {
 }
 
 .form-label {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     margin-left: 40px;
 }
@@ -134,7 +134,7 @@ legend {
 }
 
 .form-redirect {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: small;
     padding-left: 40px;
 }
@@ -176,7 +176,7 @@ legend {
 
 
 .submit {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
     background-color:white;
@@ -211,7 +211,7 @@ legend {
 }
 
 #bounce-login {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Poppins', sans-serif;
   border: none;
   background-color: white;
   padding: 10px;
@@ -240,7 +240,7 @@ legend {
 }
 
 .auth-a {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding-left: 160px;
     color: #000;
 }
@@ -277,7 +277,7 @@ legend {
 }
 
 .topics {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: black;
     color: aliceblue;
     width: 100px;
@@ -289,7 +289,7 @@ legend {
 }
 
 .links li a {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: black;
 }
 

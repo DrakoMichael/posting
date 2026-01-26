@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     buttonShowModalCreate.addEventListener('click', () => {
+        authenticationVerify();
         overlayPost.classList.add('overlay-post');
         modalPost.classList.remove('modal-overlay');
         modalPost.classList.add('modal-overlay-active');

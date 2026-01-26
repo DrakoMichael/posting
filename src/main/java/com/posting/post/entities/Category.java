@@ -21,9 +21,6 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "categorys")
-    private Set<Post> posts = new HashSet<>();
-
     public Category() {}
 
     public Category(Long id, String name) {
@@ -45,11 +42,6 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @JsonIgnore
-    public Set<Post> getPost() {
-        return posts;
     }
 
     @Override

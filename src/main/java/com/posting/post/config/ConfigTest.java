@@ -50,8 +50,8 @@ public class ConfigTest implements CommandLineRunner {
         categoryRepository.save(ca1);
 
 
-        Post p1 = new Post(null, "lucas", "BOA", LocalDateTime.now(),u2);
-        Post p2 = new Post(null, "Sousou No Frieren", "Assisti um anime muito bom!", LocalDateTime.now(),u1);
+        Post p1 = new Post(null, "Restaurante Fenomenal!", "Comi em um restaurante fenomenal!", LocalDateTime.now(),u2);
+        Post p2 = new Post(null, "Oficina", "Vagas Abertas!", LocalDateTime.now(),u1);
         postRepository.saveAll(Arrays.asList(p1, p2));
         p2.getCategorys().add(ca1);
         postRepository.save(p2);
