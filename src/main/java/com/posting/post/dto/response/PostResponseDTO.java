@@ -12,7 +12,7 @@ public record PostResponseDTO(
         String description,
         String category,
 
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+        // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
         LocalDateTime date,
 
         PermissionsResponseDTO permissions

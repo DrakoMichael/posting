@@ -8,9 +8,11 @@ import com.posting.post.mapper.PostMapper;
 import com.posting.post.services.exceptions.ResourceNotFoundException;
 import com.posting.post.services.exceptions.UnauthorizedActionException;
 
+import java.util.Collections;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -44,12 +46,13 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public Page<Post> findAll(int page, int size) {
-        Page<Post> posts = postRepository.findAll(PageRequest.of(page, size));
+        Page<Post> posts = postRepository.findAll(PageRequest.of(page, size, Sort.by("date").descending()));
 
         // Regra de negócio
         if (posts.isEmpty()) {
             throw new ResourceNotFoundException(posts);
         }
+
         return posts;
     }
 

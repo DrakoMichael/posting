@@ -4,6 +4,10 @@ hrml, body {
   min-height: 100dvh;
 }
 
+body {
+    background-color: black;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,23 +22,73 @@ hrml, body {
     justify-content: center;
 }
 
-.background {
-    background-image: url('../img/liquid-cheese.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.aside-left {
+    margin-right: 500px;
+    background-color: black;
+    margin-bottom: 100px;
+    padding-top: 40dvh;
+    padding-bottom: 40dvh;
+    border-radius: 30px;
+}
+
+.hr-left {
+    background-color: gray;
+    opacity: 70%;
+    border-radius: 30px;
+    height: 99.5dvh;
+    width: 1.5px;
+    position: absolute;
+    left: 500px;
 }
 
 
+.aside-right {
+    margin-left: 500px;
+    background-color: black;
+    margin-bottom: 100px;
+    padding-top: 40dvh;
+    padding-bottom: 40dvh;
+    border-radius: 30px;
+}
+
+.hr-right {
+    background-color: gray;
+    opacity: 70%;
+    border-radius: 30px;
+    height: 99.5dvh;
+    width: 1.5px;
+    position: absolute;
+    right: 500px;
+}
+
 .header-content {
-    padding-left: 150px;
+    left: 50px;
 }
 
 .main-title {
+    color: white;
     font-family: 'Poppins', sans-serif;
     margin-top: auto;
     margin: 0%;
     font-size: 200px;
+}
+
+.main-title-icon {
+    position: absolute;
+    right: 170px;
+    width: 100px;
+}
+
+.main-title-hr {
+    position: absolute;
+    background-color: white;
+    color: white;
+    width: 250px;
+    margin: 0;
+    margin-left: 0;
+    height: 3px;
+    top: 120px;
+    left: 155px;
 }
 
 #demo-title {
@@ -75,6 +129,14 @@ hrml, body {
   filter: blur(1.50px);
 }
 
+.visible {
+    display: flex;
+}
+
+.invisible {
+    display: none;
+}
+
 .modal-position {
     position: absolute;
     inset: 0;
@@ -92,7 +154,7 @@ hrml, body {
 }
 
 fieldset {
-    border: 1px gray solid rgba(000, 000, 000, 0.3);
+    border: 1px gray solid rgba(000, 000, 000, 0.1);
     height: 650px;
     width: 450px;
     justify-content: center;
@@ -113,7 +175,7 @@ legend {
 
 .form-fields {
     padding-top: 0;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .form-label {
@@ -137,31 +199,6 @@ legend {
     font-family: 'Poppins', sans-serif;
     font-size: small;
     padding-left: 40px;
-}
-
-.message {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: small;
-    position: absolute;
-    padding-left: 85px;
-    padding-right: 85px;
-
-}
-
-.message.sucesso {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: small;
-    position: absolute;
-    padding-left: 85px;
-    padding-right: 85px;
-}
-
-.message.erro {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: small;
-    position: absolute;
-    padding-left: 85px;
-    padding-right: 85px;
 }
 
 .form-submit {
@@ -208,6 +245,8 @@ legend {
     padding: 30px;
     margin: 0;
     box-sizing: border-box;
+    border: 10px 10px gray;
+    box-shadow: 1.5px 1.5px 0 gray;
 }
 
 #bounce-login {
@@ -242,7 +281,7 @@ legend {
 .auth-a {
     font-family: 'Poppins', sans-serif;
     padding-left: 160px;
-    color: #000;
+    color: white;
 }
 
 .bounce-overlay {
@@ -278,8 +317,8 @@ legend {
 
 .topics {
     font-family: 'Poppins', sans-serif;
-    background-color: black;
-    color: aliceblue;
+    background-color: white;
+    color: black;
     width: 100px;
     height: 30px;
     margin-top: 10px;
@@ -333,11 +372,11 @@ legend {
     left: 0px;
     transform: translate(-50%, -50%);
     padding: 10px 5px;
-    color: #fff;
+    color: black;
     background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #000000 20%);
     background-position: 0;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: white;
     animation: shine 3s infinite linear;
     animation-fill-mode: forwards;
     -webkit-text-size-adjust: none;

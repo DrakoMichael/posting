@@ -16,11 +16,15 @@
 
 </head>
 
-<body style="overflow: hidden;">
+<body style="overflow: hidden; background-color: black;">
 
     <header class="bounce">
+        <a href="index.html">
+            <img class="selection" src="img/newspaper.svg"
+                style="margin: 0; position: absolute; width: 70px; top: 20px;">
+        </a>
         <a id="bounce-login" class="bounce-overlay-active animation-scale-hover" href="auth.html">Acesse sua Conta</a>
-        <a id="bounce-profile" class="bounce-overlay animation-scale-houver" href="post.html"></a>
+        <a id="bounce-profile" class="selection bounce-overlay animation-scale-houver" href="post.html"></a>
     </header>
 
     <div class="fullscreen">
@@ -66,11 +70,16 @@
             </div>
         </div>
 
+        <aside class="aside-left">
+            AAAAAAAAAAAAAAAAAAAAAAAAAA
+        </aside>
+
+        <hr class="hr-left">
+
         <div id="overlay-post" class="">
             <main>
                 <header id="main-title">
-                    <a id="button-show-modal-create"
-                        class="selection bounce-overlay-active animation-scale-hover">Criar</a>
+                    <a id="button-show-modal-create" class="selection bounce-overlay-active">Criar</a>
                     <hr>
                 </header>
                 <div id="container-posts">
@@ -79,6 +88,12 @@
                 <div id="message"></div>
             </main>
         </div>
+
+        <hr class="hr-right">
+
+        <aside class="aside-right">
+            AAAAAAAAAAAAAAAAAAAAAAAAAA
+        </aside>
 
         <footer></footer>
 

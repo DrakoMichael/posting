@@ -39,7 +39,6 @@ public class PostMapper {
         );
     }
 
-
     // Recebe DTO e transforma em entidade
     public Post toEntity(PostRequestDTO dto) {
         Post post = new Post();
