@@ -76,28 +76,13 @@ public class PostService {
         return posts;
     }
 
-    @Transactional
-    @PreAuthorize("isAuthenticated()")
-    public Post addCategoryInPost(Long postId, Long categoryId) {
-        Long userId = authenticatedUserService.getCurrentUserId();
-        Post post =  postRepository.findById(postId).orElseThrow(() ->
-                new ResourceNotFoundException("No posts found."));
-        Category category = categoryService.findById(categoryId);
-
-        // Regra de negócio
-        boolean isOwner = post.getUser().getId().equals(userId);
-        if (!isOwner) throw new UnauthorizedActionException("Acess Not Permited for this id" + userId);
-
-        post.getCategorys().add(category);
-        postRepository.save(post);
-        return post;
-    }
-
     @PreAuthorize("isAuthenticated()")
     public Post createPost(PostRequestDTO dto) {
         User user = authenticatedUserService.getCurrentUser();
         Post post = postMapper.toEntity(dto);
+        Category category = categoryService.findByName(dto.category());
         post.setUser(user);
+        post.setCategory(category);
         return postRepository.save(post);
     }
 

@@ -71,6 +71,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // Atualizar
     @Transactional
     @PreAuthorize("isAuthenticated()")
     public User updateUser(User obj) {

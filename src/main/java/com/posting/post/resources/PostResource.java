@@ -46,6 +46,7 @@ public class PostResource {
         return ResponseEntity.ok().body(postMapper.toPost(postService.findById(id)));
     }
 
+    /*
     @PostMapping(value = "/{postId}/{categoryId}")
     public ResponseEntity<PostResponseDTO> addCategoryInPost(@PathVariable Long postId, @PathVariable Long categoryId) {
         Post post = postService.addCategoryInPost(postId, categoryId);
@@ -54,6 +55,7 @@ public class PostResource {
                 .toUri();
         return ResponseEntity.created(uri).body(postMapper.toPost(post));
     }
+    */
 
     @PostMapping
     public ResponseEntity<PostResponseDTO> createPost(@RequestBody

@@ -48,6 +48,7 @@ public class SecurityConfig {
                 "/index.html",
                 "/auth.html",
                 "/posts.html",
+                "/posts-hub.html",
                 "/js/**",
                 "/css/**",
                 "/img/**")
@@ -65,6 +66,9 @@ public class SecurityConfig {
 
             // Coment
             .requestMatchers(HttpMethod.GET, "/coments/**").permitAll()
+
+            // Category
+            .requestMatchers(HttpMethod.GET, "/categories").permitAll()
 
             // AdressUser
             .requestMatchers(HttpMethod.GET, "/adress_users").hasRole("ADMIN")

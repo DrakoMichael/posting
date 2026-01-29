@@ -1,88 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const containerPosts = document.getElementById('container-posts');
+    // Screen Default
+    const asideButtonSearch = document.getElementById('aside-button-search');
+    const asideButtonHome = document.getElementById('aside-button-home');
+    const asideButtonHomeImg = document.getElementById('aside-button-home-img');
+
     const bounceLogin = document.getElementById('bounce-login');
     const bounceProfile = document.getElementById('bounce-profile');
-    const logoutProfile = document.getElementById('profile-logout');
 
-    const formPost = document.getElementById('form-post');
-    const inputTitle = document.getElementById('post-title');
-    const inputDescription = document.getElementById('post-description');
-    const submit = document.getElementById('post-submit');
-    const message = document.getElementById('login-message');
-
-    const modalPost = document.getElementById('modal-create-post');
-    const buttonExitModalInfo = document.getElementById('button-exit-modal-create');
-    const overlayPost = document.getElementById('overlay-post');
     const overlay = document.getElementById('overlay');
     const loader = document.getElementById('loader');
 
-    // <!---------COMPONENTS---------->
+    // Document
+    const containerPosts = document.getElementById('container-posts');
+    const buttonLinkCreatePost = document.getElementById('button-link-create-post');
+    const textPostNotFound = document.getElementById('text-post-notfound');
 
-    function loaderShow(boolean) {
-        if (boolean === true) {
-            loader.classList.remove('load-overlay');
-            loader.classList.add('loader-overlay-active');
-            overlay.classList.add('overlay');
+    // Components
+    showBounceAuth(bounceLogin, bounceProfile);
+    loaderShow(true, loader, overlay);
+    asideButtonsSelected();
 
+    function asideButtonsSelected() {
+        asideButtonHome.classList.add('aside-links-selected');
+        asideButtonHomeImg.src = "img/house-bold.svg";
+    }
+
+    buttonLinkCreatePost.addEventListener('click', () => {
+        if (!authenticated()) {
+            alert('Você precisa estar autenticado para acessar este recurso!');
+            window.location.href = 'auth.html'
         } else {
-            loader.classList.remove('loader-overlay-active');
-            loader.classList.add('load-overlay');
-            overlay.classList.remove('overlay');
+            window.location.href = 'posts-hub.html';
         }
-    }
 
-    function modalInformations(info) {
-        info.addEventListener('click', () => {
-            authenticationVerify();
-            overlayPost.classList.add('overlay-post');
-            modalPost.classList.remove('modal-overlay');
-            modalPost.classList.add('modal-overlay-active');
-        })
+    })
 
-        buttonExitModalInfo.addEventListener('click', () => {
-            overlayPost.classList.remove('overlay-post');
-            modalPost.classList.remove('modal-overlay-active');
-            modalPost.classList.add('modal-overlay');
-        })
-
-    }
-
-    function submitButton() {
-        const formSubmitDiv = submit.parentElement; // Pega o elemento pai do elemento (div)
-        if (!inputTitle.value || !inputDescription.value) {
-            submit.disabled = true;
-            formSubmitDiv.classList.remove('animation-scale-hover');
-            formSubmitDiv.classList.remove('form-submit-hover');
-        } else {
-            submit.disabled = false;
-            formSubmitDiv.classList.add('animation-scale-hover');
-            formSubmitDiv.classList.add('form-submit-hover');
-        }
-    }
-    inputTitle.addEventListener('input', submitButton);
-    inputDescription.addEventListener('input', submitButton);
-    // Recarrega a função criando loop para alterações
-    submitButton();
-
-    showBounceAuth();
-    function showBounceAuth() {
-        const token = getToken();
-        if (token) {
-            console.log(token);
-            bounceLogin.classList.remove('bounce-overlay-active');
-            bounceLogin.classList.add('bounce-overlay');
-            bounceProfile.classList.remove('bounce-overlay');
-            bounceProfile.classList.add('bounce-overlay-active');
-        } else {
-            bounceLogin.classList.remove('bounce-overlay');
-            bounceLogin.classList.add('bounce-overlay-active');
-            bounceProfile.classList.remove('bounce-overlay-active');
-            bounceProfile.classList.add('bounce-overlay');
-        }
-    }
-
-    // <!---------API---------->
+    // API
+    // GET ALL
     const token = getToken();
     loadAPI();
     async function loadAPI() {
@@ -94,10 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            // <!---------DOM Manipulation---------->
-
-            // <!---------GET ALL---------->
             const apiData = await response.json();
+            const responseMessage = postExceptionStatus(response);
+            if (!response.ok) {
+                showTextException(responseMessage, textPostNotFound);
+                loaderShow(false, loader, overlay);
+            }
+
+
             apiData.content.forEach(post => {
                 const card = document.createElement('div');
                 const title = document.createElement('h2');
@@ -152,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     info.classList.remove('invisible');
                     info.classList.add('visible');
                 }
-                modalInformations(info);
+                //modalInformations(info);
                 infoImage.src = "img/ellipsis-vertical.svg";
                 hr.classList.add('hr');
                 hrName.classList.add('hr-name');
@@ -160,68 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 info.append(infoImage);
                 card.append(profile, authorName, hrName, title, description, createdAt, category, info);
                 containerPosts.append(card, hr);
+                setTimeout(() => {
+                    loaderShow(false, loader, overlay);
+                }, 1000);
 
                 card.addEventListener('click', () => {
-
+                    console.log(card.dataset.id)
                 })
-
             });
-
-            // <!---------CREATE ME---------->
-            createPost();
-            function createPost() {
-
-                formPost.addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    loaderShow(true);
-                    processRecord();
-
-                })
-
-                function collectData() {
-                    const post = {
-                        name: inputTitle.value.trim(),
-                        description: inputDescription.value.trim()
-                    }
-                    return post;
-                }
-
-                function processRecord() {
-                    const post = collectData();
-                    submit.disabled = true;
-                    submit.value = 'Carregando...';
-                    fetchCreate(post);
-
-                }
-
-                async function fetchCreate(post) {
-
-                    const url = '/posts';
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(post)
-                    });
-
-                    console.log('Sent Data');
-
-                    const apiData = await response.json();
-                    console.log('API DATA: ' + apiData);
-                    formPost.reset();
-
-                    setTimeout(() => {
-                        submit.value = 'Enviar';
-                    }, 3000);
-
-                    setTimeout(() => {
-                        loaderShow(false);
-                    }, 3000);
-                }
-            }
-
         } catch (e) {
             throw new Error("Error");
 

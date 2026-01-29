@@ -11,4 +11,6 @@ public record PostRequestDTO(
         String name,
 
         @Size(min = 0, max = 2200, message = "{PostRequestDTO.description.Size}")
-        String description){}
+        String description,
+
+        String category){}

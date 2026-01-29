@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Posting - Posts</title>
+    <link rel="stylesheet" href="css/posts-hub.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/posts.css">
 
@@ -15,7 +16,6 @@
 </head>
 
 <body style="overflow: hidden; background-color: black;">
-
     <div id="overlay">
 
         <div id="loader" class="loader loader-overlay">
@@ -77,20 +77,53 @@
 
             <hr class="hr-left">
 
-            <header id="text-post-notfound" class="text-exception invisible">
-            </header>
-            <div id="overlay-post" class="center">
-                <main>
-                    <header id="main-title">
-                        <a id="button-link-create-post" class="selection bounce-overlay-active">Criar</a>
-                        <hr>
-                    </header>
-                    <div id="container-posts">
-                        <!--Cards-->
+            <main class="center">
+
+                <div id="">
+                    <div>
+                        <!--Modal Optional-->
                     </div>
-                    <div id="message"></div>
-                </main>
-            </div>
+                </div>
+
+                <!--Center-->
+
+                <div class="container-center-post">
+                    <div class="container-center-post-create">
+                        <p class="container-text">
+                            Criar Nova Postagem
+                        </p>
+                        <div class="forms-post-position">
+                            <form id="post-create" class="form-post-create">
+                                <fieldset class="form-post-fieldset">
+                                    <div class="form-post-fields">
+                                        <label for="post-title-create" class="form-post-labels">Título</label>
+                                        <input id="post-title-create" class="form-post-inputs selection-focus"
+                                            name="name" required placeholder="Digite um título">
+                                    </div>
+                                    <div class="form-post-fields">
+                                        <label for="post-description-create" class="form-post-labels">Descrição</label>
+                                        <textarea id="post-description-create"
+                                            class="form-post-descripton form-post-inputs selection-focus"
+                                            name="description" required placeholder="Digite uma descrição"></textarea>
+                                        <label for="post-category-create" class="form-post-labels">Categoria</label>
+                                        <select id="post-category-create"
+                                            class="form-post-select form-post-inputs selection-focus" name="category"
+                                            required>
+                                            <option>Nenhuma</option>
+                                        </select>
+                                        <input id="post-submit-create"
+                                            class="form-post-submit form-post-inputs selection-color" type="submit"
+                                            value="Publicar">
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </main>
 
             <hr class="hr-right">
 
@@ -130,8 +163,9 @@
 
     <script src="js/components/screen-standart.js"></script>;
     <script src="js/core/auth.js"></script>;
-    <script src="js/core/exception-handler.js"></script>;
-    <script src="js/pages/posts.js"></script>;
+    <script src="js/pages/category.js"></script>;
+    <script src="js/pages/posts-hub.js"></script>;
+    <!--<script src="js/pages/posts.js"></script>;-->
 
 </body>
 

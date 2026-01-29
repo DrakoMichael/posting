@@ -33,10 +33,12 @@ public class ConfigTest implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        User u1 = new User(null, "Lucas", "lucas@gmail.com", "$2a$12$dMUlIsA6hb3X4tnbt3kx5.s9x/99ZyOHkuRyCa6DfMmr0JsVe1qVC", UserRole.ADMIN);
+
+        User u1 = new User(null, "Lucas Silva", "lucas@gmail.com", "$2a$12$dMUlIsA6hb3X4tnbt3kx5.s9x/99ZyOHkuRyCa6DfMmr0JsVe1qVC", UserRole.ADMIN);
         User u2 = new User(null, "Maria", "maria@gmail.com", "Lucas_fullpvp123@", UserRole.PUBLIC);
         User u3 = new User(null, "Ana", "ana@gmail.com", "Lucas_fullpvp123@", UserRole.PUBLIC);
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
+
 
         AdressUser ad1 = new AdressUser(null, "Brazil", "Rio", "Campos", "Estrada", "Coronel", 307, u1);
         AdressUser ad2 = new AdressUser(null, "United States", "Oregon", "Orlando", "Neska","Clinton", 227, u2);
@@ -49,15 +51,16 @@ public class ConfigTest implements CommandLineRunner {
         Category ca1 = new Category(null, "Anime");
         categoryRepository.save(ca1);
 
-
-        Post p1 = new Post(null, "Restaurante Fenomenal!", "Comi em um restaurante fenomenal!", LocalDateTime.now(),u2);
-        Post p2 = new Post(null, "Oficina", "Vagas Abertas!", LocalDateTime.now(),u1);
+        /*
+        Post p1 = new Post(null, "Restaurante Fenomenal!", "Comi em um restaurante fenomenal!", new Category(null, "Futebol"), LocalDateTime.now(),u2);
+        Post p2 = new Post(null, "Oficina", "Vagas Abertas!", new Category(null, "Carros"), LocalDateTime.now(),u1);
         postRepository.saveAll(Arrays.asList(p1, p2));
-        p2.getCategorys().add(ca1);
         postRepository.save(p2);
 
         Coment co1 = new Coment(null,p2, u3, "Realmente, anime muito bom!", LocalDateTime.now());
         comentRepository.save(co1);
         p2.getComents().add(co1);
+
+        */
     }
 }

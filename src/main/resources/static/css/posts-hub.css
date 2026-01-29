@@ -1,0 +1,88 @@
+.container-center-post {
+    position: relative;
+    background-color: black;
+    padding: 1dvh;
+}
+
+.container-center-post-create {
+    padding: 40dvh;
+    background-color: black;
+}
+
+.container-text {
+    top: 0px;
+    left: 20dvh;
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forms-post-position {
+    position: absolute;
+    left: 20px;
+    top: 150px;
+}
+
+.form-post-create {
+}
+
+.form-post-fieldset {
+    border: none;
+}
+
+.form-post-fields {
+
+}
+
+.form-post-labels {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 30px;
+    display: flex;
+}
+
+.form-post-inputs {
+    width: 73dvh;
+    height: 5dvh;
+    padding-left: 15px;
+    border-radius: 30px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: 2px gray solid;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+.form-post-inputs::placeholder {
+    color: gray;
+}
+
+.form-post-descripton {
+    padding-top: 15px;
+    padding-bottom: 100px;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+.form-post-select {
+    background-color: black;
+    color: white;
+    width: 76dvh;
+}
+
+.form-post-select:hover {
+    cursor: pointer;
+}
+
+.form-post-submit {
+    margin-top: 40px;
+    width: 76dvh;
+    transition: background-color 0.5s ease;
+}

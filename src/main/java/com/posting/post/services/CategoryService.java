@@ -52,6 +52,11 @@ public class CategoryService  {
                 new ResourceNotFoundException(id));
     }
 
+    public Category findByName(String name) {
+        return categoryRepository.findByName(name).orElseThrow(() ->
+                new ResourceNotFoundException("No categories found"));
+    }
+
     @Transactional
     @PreAuthorize("hasRole('ADMIN')")
     public Category createCategory(CategoryRequestDTO body) {

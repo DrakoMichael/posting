@@ -6,6 +6,7 @@ import com.posting.post.dto.request.PostRequestDTO;
 import com.posting.post.dto.response.AuthorResponseDTO;
 import com.posting.post.dto.response.PermissionsResponseDTO;
 import com.posting.post.dto.response.PostResponseDTO;
+import com.posting.post.entities.Category;
 import com.posting.post.entities.Post;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +30,7 @@ public class PostMapper {
                 ),
                 post.getName(),
                 post.getDescription(),
-                post.getCategorys().stream().findFirst().map(c -> c.getName()).orElse("Uncategorized"),
+                post.getCategory().getName(),
                 post.getDate(),
                 new PermissionsResponseDTO(
                         checkEditPermission(post, currentUser),

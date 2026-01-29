@@ -39,18 +39,18 @@ public class Post implements Serializable {
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     private List<Coment> coments = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "tb_post_category", joinColumns = @JoinColumn(name = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categorys = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Post() {}
 
-    public Post(Long id, String name, String description, LocalDateTime date, User user) {
+    public Post(Long id, String name, String description, Category category, LocalDateTime date, User user) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.date = date;
+        this.category = category;
         this.user = user;
     }
 
@@ -86,6 +86,14 @@ public class Post implements Serializable {
         this.date = date;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public User getUser() {
         return user;
     }
@@ -96,10 +104,6 @@ public class Post implements Serializable {
 
     public List<Coment> getComents() {
         return coments;
-    }
-
-    public Set<Category> getCategorys() {
-        return categorys;
     }
 
     @Override
