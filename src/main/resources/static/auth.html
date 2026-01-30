@@ -19,122 +19,115 @@
 
 </head>
 
-<body>
+<body style="overflow: hidden;">
+
+    <div id="overlay"></div>
+    <div id="loader" class="loader invisible">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+        <div class="bar9"></div>
+        <div class="bar10"></div>
+        <div class="bar11"></div>
+        <div class="bar12"></div>
+    </div>
 
     <div class="fullscreen">
 
-        <div id="loader" class="loader invisible">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            <div class="bar4"></div>
-            <div class="bar5"></div>
-            <div class="bar6"></div>
-            <div class="bar7"></div>
-            <div class="bar8"></div>
-            <div class="bar9"></div>
-            <div class="bar10"></div>
-            <div class="bar11"></div>
-            <div class="bar12"></div>
-        </div>
-
-        <header class="header-content"
-            style="margin-left: 0; margin-right: 1400px; margin-top: 0; margin-bottom: 700px; position: absolute;">
-
+        <header id="header-title">
             <img class="main-title-icon" src="img/newspaper.svg">
             <h1 class="main-title" style="font-size: 80px; margin-right: 280px; margin-bottom: 50px;">Posting</h1>
             <hr class="main-title-hr" style="left: 5px;">
         </header>
 
-        <div id="overlay">
+        <main>
+            <div id="modal-login" class="visible modal-position-center">
+                <form id="form-login">
+                    <fieldset name="Login" , class="fieldset-auth">
+                        <img id="auth-profile" src="img/circle-user-round.svg">
+                        <h1 class="form-title">Entre na sua Conta</h1>
+                        <legend class="legend-auth">Login</legend>
+                        <div class="form-fields">
+                            <label class="form-label" for="login-email">Email de usuário</label>
+                            <input class="form-input selection-focus" type="email" id="login-email" name="email"
+                                placeholder="Digite seu email" required>
+                        </div>
+                        <div class="form-fields">
+                            <label class="form-label" for="login-password">Senha de usuário</label>
+                            <input class="form-input selection-focus" type="password" id="login-password"
+                                name="password" placeholder="Digite sua senha" autocomplete="off" required>
+                        </div>
+                        <div class="form-redirect">
+                            <p>Não tem uma conta? <a class="text-decoration text-decoration-show"
+                                    id="button-register-redirect" style="cursor: pointer; color: grey;">Registre-se
+                                </a> </p>
+                        </div>
+                        <div class="form-submit">
+                            <input class="submit selection-color" type="submit" id="login-submit" value="Acessar">
+                        </div>
+                        <a class="auth-a toggle-buttons text-decoration text-decoration-show" href="index.html">Voltar
+                            ao início</a>
+                        <div id="login-message" class="message"></div>
 
-            <main>
+                    </fieldset>
+                </form>
+            </div>
 
-                <div id="modal-login" class="visible modal-position-center">
-                    <form id="form-login">
-                        <fieldset name="Login" , class="fieldset-login fieldset-auth">
-                            <img id="auth-profile" src="img/circle-user-round.svg">
-                            <h1 class="form-title">Entre na sua Conta</h1>
-                            <legend class="legend-auth">Login</legend>
-                            <div class="form-fields">
-                                <label class="form-label" for="login-email">Email de usuário</label>
-                                <input class="form-input selection-focus" type="email" id="login-email" name="email"
-                                    placeholder="Digite seu email" required>
-                            </div>
-                            <div class="form-fields">
-                                <label class="form-label" for="login-password">Senha de usuário</label>
-                                <input class="form-input selection-focus" type="password" id="login-password"
-                                    name="password" placeholder="Digite sua senha" autocomplete="off" required>
-                            </div>
-                            <div class="form-redirect">
-                                <p>Não tem uma conta? <a class="text-decoration text-decoration-show"
-                                        id="button-register-redirect" style="cursor: pointer; color: grey;">Registre-se
-                                    </a> </p>
-                            </div>
-                            <div class="form-submit">
-                                <input class="submit selection-color" type="submit" id="login-submit" value="Acessar">
-                            </div>
-                            <a class="auth-a toggle-buttons text-decoration text-decoration-show"
-                                href="index.html">Voltar ao início</a>
-                            <div id="login-message" class="message"></div>
+            <div id="modal-register" class="invisible modal-position-center">
+                <form id="form-register">
+                    <fieldset class="fieldset-auth">
+                        <img id="auth-profile" src="img/circle-user-round.svg">
+                        <h1 class="form-title">Crie uma Conta</h1>
+                        <legend class="legend-auth">Cadastro</legend>
+                        <div class="form-fields">
+                            <label class="form-label" for="register-name"> Nome de usuário</label>
+                            <input class="form-input selection-focus" type="text" id="register-name" name="name"
+                                placeholder="Digite seu nome" required minlength="3">
+                        </div>
+                        <div class="form-fields">
+                            <label class="form-label" for="register-email">Email de usuário</label>
+                            <input class="form-input selection-focus" type="email" id="register-email" name="email"
+                                placeholder="Digite seu email" required title="Insira um email válido!">
+                        </div>
+                        <div class="form-fields">
+                            <label class="form-label" for="register-password">Senha de usuário</label>
+                            <input class="form-input selection-focus" type="password" id="register-password"
+                                name="password" placeholder="Digite uma senha" required
+                                pattern="^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}" step="1"
+                                title="No mínimo 8 caracteres, um caractere maiúsculo, um caractere mínusculo, um caractere especial e um número.">
+                        </div>
+                        <div class="form-redirect">
+                            <p id="button-login-redirect">Já possui uma conta? <a
+                                    class="toggle-buttons text-decoration text-decoration-show" id="button-login"
+                                    style="cursor: pointer; color: grey;">Entre</a></p>
+                        </div>
+                        <div class="form-submit">
+                            <input class="submit selection-color" type="submit" id="register-submit"
+                                value="Registrar-se">
+                        </div>
+                        <a class=" auth-a toggle-buttons text-decoration text-decoration-show" href="index.html">Voltar
+                            ao
+                            início</a>
+                        <div id="register-message" class="message"></div>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
 
-                        </fieldset>
-                    </form>
-                </div>
+        <footer></footer>
 
-                <div id="modal-register" class="invisible modal-position-center">
-                    <form id="form-register">
-                        <fieldset class="fieldset-auth">
-                            <img id="auth-profile" src="img/circle-user-round.svg">
-                            <h1 class="form-title">Crie uma Conta</h1>
-                            <legend class="legend-auth">Cadastro</legend>
-                            <div class="form-fields">
-                                <label class="form-label" for="register-name"> Nome de usuário</label>
-                                <input class="form-input selection-focus" type="text" id="register-name" name="name"
-                                    placeholder="Digite seu nome" required minlength="3">
-                            </div>
-                            <div class="form-fields">
-                                <label class="form-label" for="register-email">Email de usuário</label>
-                                <input class="form-input selection-focus" type="email" id="register-email" name="email"
-                                    placeholder="Digite seu email" required title="Insira um email válido!">
-                            </div>
-                            <div class="form-fields">
-                                <label class="form-label" for="register-password">Senha de usuário</label>
-                                <input class="form-input selection-focus" type="password" id="register-password"
-                                    name="password" placeholder="Digite uma senha" required
-                                    pattern="^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}" step="1"
-                                    title="No mínimo 8 caracteres, um caractere maiúsculo, um caractere mínusculo, um caractere especial e um número.">
-                            </div>
-                            <div class="form-redirect">
-                                <p id="button-login-redirect">Já possui uma conta? <a
-                                        class="toggle-buttons text-decoration text-decoration-show" id="button-login"
-                                        style="cursor: pointer; color: grey;">Entre</a></p>
-                            </div>
-                            <div class="form-submit">
-                                <input class="submit selection-color" type="submit" id="register-submit"
-                                    value="Registrar-se">
-                            </div>
-                            <a class=" auth-a toggle-buttons text-decoration text-decoration-show"
-                                href="index.html">Voltar ao
-                                início</a>
-                            <div id="register-message" class="message"></div>
-                        </fieldset>
-                    </form>
-                </div>
-            </main>
-
-            <footer></footer>
-
-            <script src="js/components/screen-standart.js"></script>
-            <script src="js/core/auth.js"></script>
-            <script src="js/core/exception-handler.js"></script>
-            <script src="js/pages/login.js"></script>
-            <script src="js/pages/register.js"></script>
-
-        </div>
+        <script src="js/components/screen-standart.js"></script>
+        <script src="js/core/auth.js"></script>
+        <script src="js/core/exception-handler.js"></script>
+        <script src="js/pages/login.js"></script>
+        <script src="js/pages/register.js"></script>
 
     </div>
-
 </body>
 
 </html>

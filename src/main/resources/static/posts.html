@@ -21,116 +21,115 @@
 
 <body style="overflow: hidden; background-color: black;">
 
-    <div id="overlay">
+    <div id="overlay"></div>
 
-        <div id="loader" class="loader invisible">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            <div class="bar4"></div>
-            <div class="bar5"></div>
-            <div class="bar6"></div>
-            <div class="bar7"></div>
-            <div class="bar8"></div>
-            <div class="bar9"></div>
-            <div class="bar10"></div>
-            <div class="bar11"></div>
-            <div class="bar12"></div>
-        </div>
+    <div id="loader" class="loader invisible">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+        <div class="bar9"></div>
+        <div class="bar10"></div>
+        <div class="bar11"></div>
+        <div class="bar12"></div>
+    </div>
 
-        <header class="bounce">
-            <a href="index.html">
-                <img class="selection" src="img/newspaper.svg"
-                    style="margin: 0; position: absolute; width: 70px; top: 20px;">
-            </a>
-            <a id="bounce-login" class="selection display-visible" href="auth.html">Acesse sua Conta</a>
-            <a id="bounce-profile" class="selection display-invisible" href="post.html"></a>
-        </header>
+    <header class="bounce">
+        <a href="index.html">
+            <img class="selection" src="img/newspaper.svg"
+                style="margin: 0; position: absolute; width: 70px; top: 20px;">
+        </a>
+        <a id="bounce-login" class="selection display-visible" href="auth.html">Acesse sua Conta</a>
+        <a id="bounce-profile" class="selection display-invisible" href="post.html"></a>
+    </header>
 
-        <div class="fullscreen">
+    <div class="fullscreen">
 
-            <aside class="aside-left">
-                <div class="aside-left-container">
-                    <div class="aside-links">
-                        <a id="aside-button-search" class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/search.svg" fetchpriority="high">
-                            Buscar
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="aside-button-home" class="aside-text-decoration" href="posts.html">
-                            <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg"
-                                fetchpriority="high">
-                            Início
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/user-round.svg" fetchpriority="high">
-                            Perfil
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/globe-lock.svg" fetchpriority="high">
-                            Admin
-                        </a>
-                    </div>
+        <aside class="aside-left">
+            <div class="aside-left-container">
+                <div class="aside-links">
+                    <a id="aside-button-search" class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/search.svg" fetchpriority="high">
+                        Buscar
+                    </a>
                 </div>
-
-            </aside>
-
-            <hr class="hr-left">
-
-            <header id="text-post-notfound" class="text-exception invisible">
-            </header>
-            <div class="center">
-                <main>
-                    <header id="main-title">
-                        <a id="button-link-create-post" class="selection display-visible">Criar</a>
-                        <hr>
-                    </header>
-                    <div id="container-posts">
-                        <!--Cards-->
-                    </div>
-                    <div id="message"></div>
-                </main>
+                <div class="aside-links">
+                    <a id="aside-button-home" class="aside-text-decoration" href="posts.html">
+                        <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg"
+                            fetchpriority="high">
+                        Início
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/user-round.svg" fetchpriority="high">
+                        Perfil
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/globe-lock.svg" fetchpriority="high">
+                        Admin
+                    </a>
+                </div>
             </div>
 
-            <hr class="hr-right">
+        </aside>
 
-            <aside class="aside-right">
-                <div class="aside-right-container" style="visibility: hidden;">
-                    <div class="aside-links-right">
-                        <a id="">
-                            <img class="aside-links-img" src="img/search.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img class="aside-links-img" src="img/user-round.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img class="aside-links-img" src="img/globe-lock.svg">
-                            ......
-                        </a>
-                    </div>
+        <hr class="hr-left">
+
+        <header id="text-post-notfound" class="text-exception invisible">
+        </header>
+        <div class="center">
+            <main>
+                <header id="main-title">
+                    <a id="button-link-create-post" class="selection display-visible">Criar</a>
+                    <hr>
+                </header>
+                <div id="container-posts">
+                    <!--Cards-->
                 </div>
-            </aside>
-
-            <footer></footer>
-
+                <div id="message"></div>
+            </main>
         </div>
+
+        <hr class="hr-right">
+
+        <aside class="aside-right">
+            <div class="aside-right-container" style="visibility: hidden;">
+                <div class="aside-links-right">
+                    <a id="">
+                        <img class="aside-links-img" src="img/search.svg">
+                        ......
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a id="">
+                        <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg">
+                        ......
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a id="">
+                        <img class="aside-links-img" src="img/user-round.svg">
+                        ......
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a id="">
+                        <img class="aside-links-img" src="img/globe-lock.svg">
+                        ......
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <footer></footer>
+
     </div>
 
     <script src="js/components/screen-standart.js"></script>;

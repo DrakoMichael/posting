@@ -23,24 +23,31 @@ body {
 }
 
 .modal-position-center {
-    position: absolute;
+    position: fixed;
     inset: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    top: 10dvh;
-    left: 79dvh;
 }
-
 
 /* ========== OVERLAY STATES ========== */
 .overlay {
-  z-index: 1;
-  position: absolute;
+  position: fixed;
   inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1.50px);
   pointer-events: none;
-  opacity: 80%;
-  filter: blur(1.50px);
+  z-index: 9999;
+
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(1.50px);
+    z-index: 1;
 }
 
 /* ========== VISIBILITY STATES ========== */

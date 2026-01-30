@@ -21,148 +21,151 @@
 </head>
 
 <body style="overflow: hidden; background-color: black;">
-    <div id="overlay">
 
-        <div id="loader" class="loader loader-overlay-hidden">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            <div class="bar4"></div>
-            <div class="bar5"></div>
-            <div class="bar6"></div>
-            <div class="bar7"></div>
-            <div class="bar8"></div>
-            <div class="bar9"></div>
-            <div class="bar10"></div>
-            <div class="bar11"></div>
-            <div class="bar12"></div>
+    <div id="overlay"></div>
+    <div id="loader" class="loader loader-overlay-hidden">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+        <div class="bar9"></div>
+        <div class="bar10"></div>
+        <div class="bar11"></div>
+        <div class="bar12"></div>
+    </div>
+
+    <header class="bounce">
+        <a href="index.html">
+            <img class="selection" src="img/newspaper.svg"
+                style="margin: 0; position: absolute; width: 70px; top: 20px;">
+        </a>
+        <a id="bounce-login" class="selection display-visible" href="auth.html">Acesse sua Conta</a>
+        <a id="bounce-profile" class="selection display-invisible" href="post.html"></a>
+    </header>
+
+    <div class="fullscreen">
+
+        <!--Modal-->
+        <div id="modal-position-center" class="modal-position-center invisible">
+            <div class="modal-backdrop"></div>
+            <!--Post Alert-->
+            <div id="modal-alert-post" class="modal-sm-horizontal invisible">
+                <p id="text-alert-post" class="text-default text-size-lg" style="top: 20%; text-align: center;">
+                </p>
+                <a class="button-md selection-color" href="posts.html" style="top: 80%;">Continuar</a>
+            </div>
         </div>
 
-        <header class="bounce">
-            <a href="index.html">
-                <img class="selection" src="img/newspaper.svg"
-                    style="margin: 0; position: absolute; width: 70px; top: 20px;">
-            </a>
-            <a id="bounce-login" class="selection display-visible" href="auth.html">Acesse sua Conta</a>
-            <a id="bounce-profile" class="selection display-invisible" href="post.html"></a>
-        </header>
+        <aside class="aside-left">
+            <div class="aside-left-container">
+                <div class="aside-links">
+                    <a id="aside-button-search" class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/search.svg" fetchpriority="high">
+                        Buscar
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a id="aside-button-home" class="aside-text-decoration" href="posts.html">
+                        <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg"
+                            fetchpriority="high">
+                        Início
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/user-round.svg" fetchpriority="high">
+                        Perfil
+                    </a>
+                </div>
+                <div class="aside-links">
+                    <a class="aside-text-decoration">
+                        <img class="aside-links-img" src="img/globe-lock.svg" fetchpriority="high">
+                        Admin
+                    </a>
+                </div>
+            </div>
 
-        <div class="fullscreen">
+        </aside>
 
-            <aside class="aside-left">
-                <div class="aside-left-container">
-                    <div class="aside-links">
-                        <a id="aside-button-search" class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/search.svg" fetchpriority="high">
-                            Buscar
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="aside-button-home" class="aside-text-decoration" href="posts.html">
-                            <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg"
-                                fetchpriority="high">
-                            Início
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/user-round.svg" fetchpriority="high">
-                            Perfil
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a class="aside-text-decoration">
-                            <img class="aside-links-img" src="img/globe-lock.svg" fetchpriority="high">
-                            Admin
-                        </a>
+        <hr class="hr-left">
+
+        <main class="center">
+            <!--Center-->
+            <div class="container-center-post">
+                <div class="container-center-post-create">
+                    <p class="container-text">
+                        Criar Nova Postagem
+                    </p>
+                    <div class="forms-post-position">
+                        <form id="post-create" class="form-post-create">
+                            <fieldset class="fieldset-medium-form">
+                                <div class="form-post-fields">
+                                    <label for="post-title-create" class="labels-medium-form">Título</label>
+                                    <input id="post-title-create" class="inputs-medium-form selection-focus" name="name"
+                                        required placeholder="Digite um título">
+                                    <label for="post-description-create" class="labels-medium-form">Descrição</label>
+                                    <textarea id="post-description-create"
+                                        class="form-post-descripton inputs-medium-form selection-focus"
+                                        name="description" required placeholder="Digite uma descrição"></textarea>
+                                    <label for="post-category-create" class="labels-medium-form">Categoria</label>
+                                    <select id="post-category-create"
+                                        class="selects-medium-form inputs-medium-form selection-focus" name="category"
+                                        required>
+                                        <option>Nenhuma</option>
+                                    </select>
+                                    <input id="post-submit-create"
+                                        class="submit-medium-form inputs-medium-form selection-color" type="submit"
+                                        value="Publicar">
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </main>
 
-            </aside>
+        <hr class="hr-right">
 
-            <hr class="hr-left">
-
-            <main class="center">
-
-                <div id="">
-                    <div>
-                        <!--Modal Optional-->
-                    </div>
+        <aside class="aside-right">
+            <div class="aside-right-container" style="visibility: hidden;">
+                <div class="aside-links-right">
+                    <a id="">
+                        <img class="aside-links-img" src="img/search.svg">
+                        ......
+                    </a>
                 </div>
-
-                <!--Center-->
-                <div class="container-center-post">
-                    <div class="container-center-post-create">
-                        <p class="container-text">
-                            Criar Nova Postagem
-                        </p>
-                        <div class="forms-post-position">
-                            <form id="post-create" class="form-post-create">
-                                <fieldset class="fieldset-medium-form">
-                                    <div class="form-post-fields">
-                                        <label for="post-title-create" class="labels-medium-form">Título</label>
-                                        <input id="post-title-create" class="inputs-medium-form selection-focus"
-                                            name="name" required placeholder="Digite um título">
-                                        <label for="post-description-create"
-                                            class="labels-medium-form">Descrição</label>
-                                        <textarea id="post-description-create"
-                                            class="form-post-descripton inputs-medium-form selection-focus"
-                                            name="description" required placeholder="Digite uma descrição"></textarea>
-                                        <label for="post-category-create" class="labels-medium-form">Categoria</label>
-                                        <select id="post-category-create"
-                                            class="selects-medium-form inputs-medium-form selection-focus"
-                                            name="category" required>
-                                            <option>Nenhuma</option>
-                                        </select>
-                                        <input id="post-submit-create"
-                                            class="submit-medium-form inputs-medium-form selection-color" type="submit"
-                                            value="Publicar">
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
+                <div class="aside-links">
+                    <a id="">
+                        <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg">
+                        ......
+                    </a>
                 </div>
-            </main>
-
-            <hr class="hr-right">
-
-            <aside class="aside-right">
-                <div class="aside-right-container" style="visibility: hidden;">
-                    <div class="aside-links-right">
-                        <a id="">
-                            <img class="aside-links-img" src="img/search.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img id="aside-button-home-img" class="aside-links-img" src="img/house.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img class="aside-links-img" src="img/user-round.svg">
-                            ......
-                        </a>
-                    </div>
-                    <div class="aside-links">
-                        <a id="">
-                            <img class="aside-links-img" src="img/globe-lock.svg">
-                            ......
-                        </a>
-                    </div>
+                <div class="aside-links">
+                    <a id="">
+                        <img class="aside-links-img" src="img/user-round.svg">
+                        ......
+                    </a>
                 </div>
-            </aside>
+                <div class="aside-links">
+                    <a id="">
+                        <img class="aside-links-img" src="img/globe-lock.svg">
+                        ......
+                    </a>
+                </div>
+            </div>
+        </aside>
 
-            <footer></footer>
+        <footer></footer>
 
-        </div>
     </div>
 
     <script src="js/components/screen-standart.js"></script>;
     <script src="js/core/auth.js"></script>;
+    <script src="js/core/exception-handler.js"></script>;
     <script src="js/pages/category.js"></script>;
     <script src="js/pages/posts-hub.js"></script>;
 </body>

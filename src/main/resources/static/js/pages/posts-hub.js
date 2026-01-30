@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const bounceProfile = document.getElementById('bounce-profile');
     const overlay = document.getElementById('overlay');
     const loader = document.getElementById('loader');
+    const modalPosition = document.getElementById('modal-position-center');
 
     // Document
+    const modalAlertPost = document.getElementById('modal-alert-post');
+    const textAlertPost = document.getElementById('text-alert-post');
     const formPostCreate = document.getElementById('post-create');
     const formPostTitleCreate = document.getElementById('post-title-create');
     const formPostDescriptionCreate = document.getElementById('post-description-create');
@@ -17,12 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     showBounceAuth(bounceLogin, bounceProfile);
     loaderShow(true, loader, overlay);
 
-
     setTimeout(() => {
         loaderShow(false, loader, overlay);
     }, 1000);
-
-
 
     // Generate HTML
     formPostCategoryCreate.addEventListener('click', () => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formPostCategoryCreate.append(formPostCategoryOption);
             })
         }
-    })
+    }, { once: true });
 
     //API
     // CREATE
@@ -79,13 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(post)
             });
             console.log('Sent Data');
-
+            console.log(response);
             formPostCreate.reset();
+
             setTimeout(() => {
                 formPostSubmitCreate.value = 'Publicar';
             }, 3000);
             setTimeout(() => {
                 loaderShow(false, loader, overlay);
+            }, 3000);
+
+            setTimeout(() => {
+                const responseMessage = postExceptionStatus(response);
+                showModal(true, modalPosition);
+                showModal(true, modalAlertPost);
+                showTextException(responseMessage, textAlertPost);
             }, 3000);
         }
     }

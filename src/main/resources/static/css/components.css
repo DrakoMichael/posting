@@ -167,7 +167,38 @@
   margin-right: 0;
 }
 
+/* ========== MODALS ========== */
+.modal-sm-horizontal {
+    z-index: 10;
+    position: absolute;
+    background-color: var(--color-black);
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: var(--border-radius-lg);
+    border: 2px var(--color-gray) solid;
+}
+
+/* ========== BUTTONS ========== */
+.button-md {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    font-family: var(--font-poppins);
+    padding: 1%;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border-radius: var(--border-radius-lg);
+    border: 2px var(--color-gray) solid;
+    transition: background-color var(--transition-slow);
+}
+
 /* ========== CARDS ========== */
+/* Post Card */
 .card {
     font-family: 'Poppins', sans-serif;
     background-color: black;
@@ -246,7 +277,6 @@
     background-color: gray;
     opacity: 70%;
 }
-
 
 /* ========== FORM MEDIUM ========== */
 .fieldset-medium-form {
