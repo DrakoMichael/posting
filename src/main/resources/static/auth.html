@@ -4,7 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Posting - Auth</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/pages.css">
 
     <!-- Google Fonts – Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +23,7 @@
 
     <div class="fullscreen">
 
-        <div id="loader" class="loader loader-overlay">
+        <div id="loader" class="loader invisible">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -45,7 +50,7 @@
 
             <main>
 
-                <div id="modal-login" class="modal-overlay-visible modal-position">
+                <div id="modal-login" class="visible modal-position-center">
                     <form id="form-login">
                         <fieldset name="Login" , class="fieldset-login fieldset-auth">
                             <img id="auth-profile" src="img/circle-user-round.svg">
@@ -77,7 +82,7 @@
                     </form>
                 </div>
 
-                <div id="modal-register" class="modal-overlay-hidden modal-position">
+                <div id="modal-register" class="invisible modal-position-center">
                     <form id="form-register">
                         <fieldset class="fieldset-auth">
                             <img id="auth-profile" src="img/circle-user-round.svg">

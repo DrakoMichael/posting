@@ -1,0 +1,56 @@
+/* ========== TEXT DECORATION ========== */
+.text-decoration {
+    text-decoration: none;
+}
+
+.text-decoration-show:hover {
+    text-decoration: underline;
+}
+
+.text-exception {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    color: white;
+    top: 20dvh;
+    text-align: justify;
+    max-width: 25%;
+    overflow-wrap: break-word;
+}
+
+/* ========== SELECTION EFFECTS ========== */
+.selection:hover {
+  cursor: pointer;
+  opacity: var(--opacity-70);
+}
+
+.selection-focus:focus {
+  border-color: var(--color-white);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.selection-color:hover {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  cursor: pointer;
+  border-color: var(--color-white);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* ========== ANIMATIONS ========== */
+.animation-scale-hover:hover {
+  transform: scale(1.05);
+}
+
+/* ========== KEYFRAMES ========== */
+/* Loader */
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}

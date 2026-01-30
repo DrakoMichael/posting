@@ -4,8 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>Posting - Posts</title>
-    <link rel="stylesheet" href="css/posts-hub.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/posts-hub.css">
     <link rel="stylesheet" href="css/posts.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +23,7 @@
 <body style="overflow: hidden; background-color: black;">
     <div id="overlay">
 
-        <div id="loader" class="loader loader-overlay">
+        <div id="loader" class="loader loader-overlay-hidden">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -38,8 +43,8 @@
                 <img class="selection" src="img/newspaper.svg"
                     style="margin: 0; position: absolute; width: 70px; top: 20px;">
             </a>
-            <a id="bounce-login" class="selection bounce-overlay-active" href="auth.html">Acesse sua Conta</a>
-            <a id="bounce-profile" class="selection bounce-overlay" href="post.html"></a>
+            <a id="bounce-login" class="selection display-visible" href="auth.html">Acesse sua Conta</a>
+            <a id="bounce-profile" class="selection display-invisible" href="post.html"></a>
         </header>
 
         <div class="fullscreen">
@@ -86,7 +91,6 @@
                 </div>
 
                 <!--Center-->
-
                 <div class="container-center-post">
                     <div class="container-center-post-create">
                         <p class="container-text">
@@ -94,35 +98,31 @@
                         </p>
                         <div class="forms-post-position">
                             <form id="post-create" class="form-post-create">
-                                <fieldset class="form-post-fieldset">
+                                <fieldset class="fieldset-medium-form">
                                     <div class="form-post-fields">
-                                        <label for="post-title-create" class="form-post-labels">Título</label>
-                                        <input id="post-title-create" class="form-post-inputs selection-focus"
+                                        <label for="post-title-create" class="labels-medium-form">Título</label>
+                                        <input id="post-title-create" class="inputs-medium-form selection-focus"
                                             name="name" required placeholder="Digite um título">
-                                    </div>
-                                    <div class="form-post-fields">
-                                        <label for="post-description-create" class="form-post-labels">Descrição</label>
+                                        <label for="post-description-create"
+                                            class="labels-medium-form">Descrição</label>
                                         <textarea id="post-description-create"
-                                            class="form-post-descripton form-post-inputs selection-focus"
+                                            class="form-post-descripton inputs-medium-form selection-focus"
                                             name="description" required placeholder="Digite uma descrição"></textarea>
-                                        <label for="post-category-create" class="form-post-labels">Categoria</label>
+                                        <label for="post-category-create" class="labels-medium-form">Categoria</label>
                                         <select id="post-category-create"
-                                            class="form-post-select form-post-inputs selection-focus" name="category"
-                                            required>
+                                            class="selects-medium-form inputs-medium-form selection-focus"
+                                            name="category" required>
                                             <option>Nenhuma</option>
                                         </select>
                                         <input id="post-submit-create"
-                                            class="form-post-submit form-post-inputs selection-color" type="submit"
+                                            class="submit-medium-form inputs-medium-form selection-color" type="submit"
                                             value="Publicar">
                                     </div>
-
                                 </fieldset>
                             </form>
                         </div>
-
                     </div>
                 </div>
-
             </main>
 
             <hr class="hr-right">
@@ -165,8 +165,6 @@
     <script src="js/core/auth.js"></script>;
     <script src="js/pages/category.js"></script>;
     <script src="js/pages/posts-hub.js"></script>;
-    <!--<script src="js/pages/posts.js"></script>;-->
-
 </body>
 
 </html>
