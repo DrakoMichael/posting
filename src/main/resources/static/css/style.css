@@ -31,6 +31,10 @@ body {
     z-index: 1000;
 }
 
+.position-absolute {
+    position: absolute;
+}
+
 /* ========== OVERLAY STATES ========== */
 .overlay {
   position: fixed;
@@ -66,6 +70,10 @@ body {
 
 .display-visible {
     display: flex;
+}
+
+.display-grid {
+    display: grid;
 }
 
 /* ========== SCROLLBAR ========== */

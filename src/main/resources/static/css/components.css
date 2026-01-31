@@ -179,7 +179,37 @@
     border: 2px var(--color-gray) solid;
 }
 
+.modal-sm-vertical {
+    z-index: 10;
+    position: absolute;
+    background-color: var(--color-black);
+    padding: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-radius: var(--border-radius-lg);
+    border: 2px var(--color-gray) solid;
+}
+
 /* ========== BUTTONS ========== */
+.button-sm {
+    margin: 0;
+    margin-top: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    font-family: var(--font-poppins);
+    padding: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border-radius: var(--border-radius-lg);
+    border: 2px var(--color-gray) solid;
+    transition: all 0.70s ease; /* Suaviza a entrada do brilho */
+    transition: background-color 0.8 ease;
+}
+
 .button-md {
     position: absolute;
     top: 50%;
@@ -305,7 +335,7 @@
     background-color: black;
     color: white;
     border: 2px gray solid;
-
+    transition: all 0.70s ease; /* Suaviza a entrada do brilho */
     transition:
         border-color 0.25s ease,
         box-shadow 0.25s ease,

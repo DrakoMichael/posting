@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const formPostSubmitCreate = document.getElementById('post-submit-create');
 
     // Components
+    alertAuthentication(false, modalPosition, modalAlertPost, textAlertPost);
     showBounceAuth(bounceLogin, bounceProfile);
     loaderShow(true, loader, overlay);
 

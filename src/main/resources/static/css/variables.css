@@ -7,11 +7,11 @@
   --color-gray: gray;
   --color-gray-dark: #333333;
   --color-gray-light: #666666;
-  
+
   /* Opacidades */
   --opacity-70: 0.7;
   --opacity-80: 0.8;
-  
+
   /* Bordas */
   --border-radius-sm: 10px;
   --border-radius-md: 20px;
@@ -19,7 +19,7 @@
   --border-radius-xl: 50px;
   --border-color: gray;
   --border-color-light: rgba(255, 255, 255, 0.3);
-  
+
   /* Espaçamentos */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -27,11 +27,11 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-xxl: 40px;
-  
+
   /* Fontes */
   --font-poppins: 'Poppins', sans-serif;
   --font-inter: 'Inter', sans-serif;
-  
+
   /* Tamanhos de fonte */
   --font-xs: 14px;
   --font-sm: 16px;
@@ -42,29 +42,30 @@
   --font-huge: 60px;
   --font-massive: 80px;
   --font-giant: 200px;
-  
+
   /* Sombras */
   --shadow-sm: 1.5px 1.5px 0 gray;
   --shadow-md: 6px 6px 0 #000;
   --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-blur: 0 0 3px rgba(0, 0, 0, 0.2);
-  
+
   /* Transições */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+  --transition-slowultra: 0.10 ease;
+
   /* Larguras */
   --width-aside: 450px;
   --width-card: 600px;
   --width-form: 450px;
   --width-container: 1200px;
-  
+
   /* Alturas */
   --height-form: 650px;
   --height-icon: 50px;
   --height-icon-sm: 30px;
-  
+
   /* Blur */
   --blur-sm: 1.50px;
   --blur-md: 5px;

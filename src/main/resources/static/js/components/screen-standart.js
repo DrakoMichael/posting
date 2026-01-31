@@ -1,10 +1,41 @@
+function alertAuthentication(validate, modalPosition, modal, textAlert) {
+    if (validate) {
+        showModal(true, modalPosition);
+        showModal(true, modal);
+        showTextException("Login Necessário", textAlert);
+    } else {
+        if (!authenticated()) {
+            showModal(true, modalPosition);
+            showModal(true, modal);
+            showTextException("Login Necessário", textAlert);
+        }
+    }
+
+}
+
 function showModal(boolean, modal) {
     if (boolean) {
         modal.classList.remove('invisible');
+        modal.classList.remove('modal-animation-close');
         modal.classList.add('visible');
+        modal.classList.add('modal-animation-open');
     } else {
         modal.classList.remove('visible');
+        modal.classList.remove('modal-animation-open');
+        modal.classList.add('modal-animation-close');
         modal.classList.add('invisible');
+    }
+}
+
+function activeExitModal(boolean, modal) {
+    if (boolean) {
+        modal.addEventListener('click', () => {
+            showModal(false, modal);
+        })
+    } else {
+        modal.addEventListener('click', () => {
+            showModal(true, modal);
+        })
     }
 }
 
@@ -35,6 +66,10 @@ function showBounceAuth(bounceLogin, bounceProfile) {
         bounceProfile.classList.remove('display-visible');
         bounceProfile.classList.add('display-invisible');
     }
+}
+
+function replaceImage(element, directory) {
+    element.src = directory;
 }
 
 function showTextException(message, element) {

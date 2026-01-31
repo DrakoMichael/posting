@@ -32,6 +32,8 @@ function postExceptionStatus(response) {
     switch (status) {
         case 201:
             return "Postagem criada"
+        case 204:
+            return "Postagem deletada"
         case 403:
             return "Login necessário para continuar"
         case 404:

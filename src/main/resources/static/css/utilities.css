@@ -57,10 +57,41 @@
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
+.selection-shine:hover {
+    border-color: #fff;
+    /* Sombra branca, sem deslocamento, bem difusa */
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+
+}
+
+.selection-shine-focus:focus {
+    border-color: #fff;
+    /* Sombra branca, sem deslocamento, bem difusa */
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+
+}
+
+.selection-shine-pulse:hover {
+    border-color: white;
+    background-color: #3e5871;
+    /* Chama a animação 'pulsar' */
+    animation: pulsar 2s infinite;
+  }
+
 /* ========== ANIMATIONS ========== */
 .animation-scale-hover:hover {
   transform: scale(1.05);
 }
+
+.modal-animation-close {
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.modal-animation-open {
+  opacity: 1;
+}
+
 
 /* ========== KEYFRAMES ========== */
 /* Loader */
@@ -73,3 +104,15 @@
     opacity: 0.25;
   }
 }
+
+@keyframes pulsar {
+    0% {
+      box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
+    }
+  }
