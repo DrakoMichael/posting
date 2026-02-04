@@ -1,7 +1,7 @@
 # 📝 Posting - API RESTful de Gerenciamento de Postagens
 
 <div align="center">
-  <img src="images/posting-login.png" alt="Posting Login" width="400"/>
+  <img src="images/posting-logo.png" alt="Posting Login" width="400"/>
 </div>
 
 ## 📋 Sobre o Projeto
@@ -52,7 +52,7 @@ A aplicação implementa autenticação e autorização via JWT (JSON Web Tokens
 <img src="images/posting-hub.png" alt="Hub de Postagens" width="600"/>
 
 ### Criar Nova Postagem
-<img src="images/create-post.png" alt="Criar Postagem" width="600"/>
+<img src="images/posting-create.png" alt="Criar Postagem" width="600"/>
 
 </div>
 
