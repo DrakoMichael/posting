@@ -23,17 +23,19 @@ A aplicação implementa autenticação e autorização via JWT (JSON Web Tokens
 - Criação, leitura, atualização e exclusão de postagens
 - Categorização de postagens
 - Paginação de resultados
-- Busca e filtragem
+- CRUD completo de postagens
 
 ### 💬 Sistema de Comentários
 - Adicionar comentários nas postagens
 - Gerenciamento de comentários por usuário
 - Relacionamento entre postagens e comentários
+- CRUD completo de comentários
 
 ### 👥 Gerenciamento de Usuários
 - Cadastro e autenticação de usuários
 - Perfil de usuário com endereço
 - Atualização de dados pessoais
+- CRUD completo de usuários e endereços
 
 ### 🏷️ Categorias
 - Organização de postagens por categorias
@@ -61,6 +63,7 @@ A aplicação implementa autenticação e autorização via JWT (JSON Web Tokens
 ## 🚧 Status do Projeto
 
 Este projeto está em desenvolvimento ativo! Novas funcionalidades estão sendo implementadas regularmente.
+Grande parte das funcionalidades já estão disponíveis no backend, e estão sendo integradas ao frontend!
 
 🎯 Funcionalidades Futuras <br>
 As seguintes features estão planejadas e em desenvolvimento: <br>
