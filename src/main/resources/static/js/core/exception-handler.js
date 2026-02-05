@@ -30,15 +30,21 @@ function exceptionStatus(response) {
 function postExceptionStatus(response) {
     const status = response.status;
     switch (status) {
+        case 200:
+            const message = {
+                GET: "Posts carregados com sucesso",
+                PUT: "Postagem atualizada"
+            }
+            return message;
         case 201:
-            return "Postagem criada"
+            return "Postagem criada";
         case 204:
-            return "Postagem deletada"
+            return "Postagem deletada";
         case 403:
-            return "Login necessário para continuar"
+            return "Login necessário para continuar";
         case 404:
             return "Nenhum Post foi encontrado. Crie um ou tente novamente mais tarde.";
         case 500:
-            return "Algo deu Errado.Tente novamente mais tarde"
+            return "Algo deu Errado.Tente novamente mais tarde";
     }
 }

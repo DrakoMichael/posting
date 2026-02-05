@@ -27,6 +27,16 @@ function showModal(boolean, modal) {
     }
 }
 
+function showDisplay(boolean, element) {
+    if (boolean) {
+        element.classList.remove('display-invisible');
+        element.classList.add('display-visible');
+    } else {
+        element.classList.remove('display-visible');
+        element.classList.add('display-invisible');
+    }
+}
+
 function activeExitModal(boolean, modal) {
     if (boolean) {
         modal.addEventListener('click', () => {
@@ -76,4 +86,12 @@ function showTextException(message, element) {
     element.innerText = message;
     element.classList.remove('invisible');
     element.classList.add('visible');
+}
+
+function setUiMode(state) {
+    sessionStorage.setItem('uiMode', state);
+}
+
+function getUiMode() {
+    return sessionStorage.getItem('uiMode');
 }

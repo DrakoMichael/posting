@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="css/posts-hub.css">
-    <link rel="stylesheet" href="css/posts.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,11 +95,11 @@
             <!--Center-->
             <div class="container-center-post">
                 <div class="container-center-post-create">
-                    <p class="container-text">
-                        Criar Nova Postagem
+                    <p id="post-title" class="container-text">
+
                     </p>
                     <div class="forms-post-position">
-                        <form id="post-create" class="form-post-create">
+                        <form id="post-create" class="form-post-create display-invisible">
                             <fieldset class="fieldset-medium-form">
                                 <div class="form-post-fields">
                                     <label for="post-title-create" class="labels-medium-form">Título</label>
@@ -116,7 +114,7 @@
                                     <select id="post-category-create"
                                         class="selects-medium-form inputs-medium-form selection-focus selection-shine-focus"
                                         name="category" required>
-                                        <option>Nenhuma</option>
+                                        <option value="">Nenhuma</option>
                                     </select>
                                     <input id="post-submit-create"
                                         class="submit-medium-form inputs-medium-form selection-color selection-shine"
@@ -124,6 +122,31 @@
                                 </div>
                             </fieldset>
                         </form>
+
+                        <form id="post-update" class="form-post-create display-invisible">
+                            <fieldset class="fieldset-medium-form">
+                                <div class="form-post-fields">
+                                    <label for="post-title-update" class="labels-medium-form">Título</label>
+                                    <input id="post-title-update"
+                                        class="inputs-medium-form selection-focus selection-shine-focus" name="name"
+                                        required placeholder="Digite um título">
+                                    <label for="post-description-update" class="labels-medium-form">Descrição</label>
+                                    <textarea id="post-description-update"
+                                        class="form-post-descripton inputs-medium-form selection-focus selection-shine-focus"
+                                        name="description" required placeholder="Digite uma descrição"></textarea>
+                                    <label for="post-category-update" class="labels-medium-form">Categoria</label>
+                                    <select id="post-category-update"
+                                        class="selects-medium-form inputs-medium-form selection-focus selection-shine-focus"
+                                        name="category" required>
+                                        <option>Nenhuma</option>
+                                    </select>
+                                    <input id="post-submit-update"
+                                        class="submit-medium-form inputs-medium-form selection-color selection-shine"
+                                        type="submit" value="Publicar">
+                                </div>
+                            </fieldset>
+                        </form>
+
                     </div>
                 </div>
             </div>

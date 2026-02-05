@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonDeletePostNot = document.getElementById('button-delete-post-not');
 
     // Components
+    sessionStorage.clear();
     showBounceAuth(bounceLogin, bounceProfile);
     loaderShow(true, loader, overlay);
     asideButtonsSelected();
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!authenticated()) {
             alertAuthentication(true, modalPositionCenter, modalAlert, textAlert);
         } else {
+            setUiMode('post-create-view');
             window.location.href = "posts-hub.html";
         }
 
@@ -151,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 loaderShow(false, loader, overlay);
             }
 
-
             apiData.content.forEach(post => {
                 const card = document.createElement('div');
                 const title = document.createElement('h2');
@@ -216,6 +217,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 1000);
 
                 info.addEventListener('click', () => {
+
+                    buttonEditPost.addEventListener('click', () => {
+                        setUiMode('post-update-view');
+                        sessionStorage.setItem("post", JSON.stringify(post));
+                        window.location.href = 'posts-hub.html';
+                    })
+
                     const postId = card.dataset.id;
                     const canEdit = card.dataset.canEdit;
                     const canDelete = card.dataset.canDelete;

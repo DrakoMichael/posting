@@ -49,18 +49,21 @@ public class ConfigTest implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
         Category ca1 = new Category(null, "Anime");
-        categoryRepository.save(ca1);
+        Category ca2 = new Category(null, "Carros");
+        Category ca3 = new Category(null, "Futebol");
+        Category ca4 = new Category(null, "Comida");
+        categoryRepository.saveAll(Arrays.asList(ca1, ca2, ca3, ca4));
 
-        /*
-        Post p1 = new Post(null, "Restaurante Fenomenal!", "Comi em um restaurante fenomenal!", new Category(null, "Futebol"), LocalDateTime.now(),u2);
-        Post p2 = new Post(null, "Oficina", "Vagas Abertas!", new Category(null, "Carros"), LocalDateTime.now(),u1);
+
+        Post p1 = new Post(null, "Restaurante Fenomenal!", "Comi em um restaurante fenomenal!", ca4, LocalDateTime.now(),u2);
+        Post p2 = new Post(null, "Oficina", "Vagas Abertas!", ca2, LocalDateTime.now(),u1);
         postRepository.saveAll(Arrays.asList(p1, p2));
-        postRepository.save(p2);
+
 
         Coment co1 = new Coment(null,p2, u3, "Realmente, anime muito bom!", LocalDateTime.now());
         comentRepository.save(co1);
         p2.getComents().add(co1);
 
-        */
+
     }
 }

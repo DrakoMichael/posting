@@ -98,6 +98,8 @@ public class PostService {
         Post entity = postRepository.getReferenceById(postId);
         Post obj = postMapper.toEntity(dto);
         updateData(entity, obj);
+        Category category = categoryService.findByName(dto.category());
+        entity.setCategory(category);
         return postRepository.save(entity);
     }
 
