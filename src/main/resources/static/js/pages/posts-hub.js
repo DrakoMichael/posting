@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formPostCategoryOption.textContent = categorys.name;
                 formPostCategoryCreate.append(formPostCategoryOption);
             })
-        })
+        }, { once: true })
 
         formPostCategoryUpdate.addEventListener('click', () => {
             categoryData.content.forEach(categorys => {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formPostCategoryOption.textContent = categorys.name;
                 formPostCategoryUpdate.append(formPostCategoryOption);
             })
-        })
+        }, { once: true })
     }
 
     //API
