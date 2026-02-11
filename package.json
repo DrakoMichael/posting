@@ -1,0 +1,24 @@
+{
+  "name": "posting-main",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <img src=\"images/posting-logo.png\" alt=\"Posting Login\" width=\"400\"/>\r </div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasdevzx/posting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lucasdevzx/posting/issues"
+  },
+  "homepage": "https://github.com/lucasdevzx/posting#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.18"
+  }
+}
